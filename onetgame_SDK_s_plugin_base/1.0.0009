@@ -1,0 +1,337 @@
+com.android.sdk.plugin.adapter.PlatformAdapter -> com.android.sdk.plugin.ft.a:
+    int platfrom -> a
+    com.android.sdk.plugin.adapter.SimInfo simInfo -> b
+    com.android.sdk.plugin.adapter.SimInfo getSimInfo(android.content.Context) -> a
+com.android.sdk.plugin.adapter.PlatformUtil -> com.android.sdk.plugin.ft.b:
+    int getOperator(java.lang.String) -> a
+com.android.sdk.plugin.adapter.SimAnd -> com.android.sdk.plugin.ft.c:
+    android.telephony.TelephonyManager telMgr -> a
+    int CID -> b
+    int LAC -> c
+    int MNC -> d
+    int MCC -> e
+    int getCID() -> a
+    int getLAC() -> b
+    int getMNC() -> c
+    int getMCC() -> d
+    java.lang.String getOperatorStr1() -> e
+    int getOperator1() -> f
+    int getOperator2() -> g
+    java.lang.String getImsi1() -> h
+    java.lang.String getImsi2() -> i
+    java.lang.String getSimId1() -> j
+    java.lang.String getImei() -> k
+    java.lang.String getPhoneNumber1() -> l
+    java.lang.String getPhoneNumber2() -> m
+com.android.sdk.plugin.adapter.SimInfo -> com.android.sdk.plugin.ft.d:
+    int getCID() -> a
+    int getLAC() -> b
+    int getMNC() -> c
+    int getMCC() -> d
+    int getOperator1() -> f
+    int getOperator2() -> g
+    java.lang.String getImsi1() -> h
+    java.lang.String getImsi2() -> i
+    java.lang.String getSimId1() -> j
+    java.lang.String getImei() -> k
+    java.lang.String getPhoneNumber1() -> l
+    java.lang.String getPhoneNumber2() -> m
+com.android.sdk.plugin.net.DownLoadListener -> com.android.sdk.plugin.ft.e:
+    void HttpTransfersEvent(java.lang.String,int,java.lang.String) -> a
+    void HttpTransfersBodyReceived(java.lang.String,java.lang.String,byte[],int) -> a
+com.android.sdk.plugin.net.DownLoadTask -> com.android.sdk.plugin.ft.f:
+    java.lang.String sUrl -> a
+    int timeout -> b
+    java.lang.String taskname -> c
+    byte[] postData -> d
+    boolean isRedirect -> e
+    boolean isUserCache -> f
+    boolean cancel -> g
+    java.util.Hashtable RequestHeader -> h
+    java.util.Hashtable recv -> i
+    java.lang.String proxy -> j
+    int proxyport -> k
+    int state -> l
+    java.lang.String methodType -> m
+    java.util.ArrayList queue -> n
+    void run() -> run
+    void issueHttpPost(java.lang.String,java.lang.String,byte[]) -> a
+    void setRequestProperty(java.util.Hashtable) -> a
+    void addCallBack(com.android.sdk.plugin.net.DownLoadListener) -> a
+    void HttpTransfersEvent(int,java.lang.String) -> a
+    void HttpTransfersBodyReceived(java.lang.String,java.lang.String,byte[],int) -> a
+    void setTimeout(int) -> a
+    java.lang.String getTaskName() -> a
+    void setHeaderRecv(java.util.Hashtable) -> b
+    void setProxy(java.lang.String,int) -> a
+com.android.sdk.plugin.net.HttpEngine -> com.android.sdk.plugin.ft.g:
+    com.android.sdk.plugin.net.ThreadPool pool -> a
+    void issueHttpPost(java.lang.String,java.lang.String,java.util.Hashtable,byte[],int) -> a
+    void setDownLoadListener(com.android.sdk.plugin.net.DownLoadListener) -> a
+    void removeCache(java.lang.String) -> a
+com.android.sdk.plugin.net.ThreadPool -> com.android.sdk.plugin.ft.h:
+    com.android.sdk.plugin.net.ThreadPool instance -> a
+    java.util.Hashtable headersRecv -> b
+    java.util.LinkedList dlList -> c
+    java.util.concurrent.ExecutorService executorService -> d
+    java.lang.String proxy -> e
+    int proxyport -> f
+    com.android.sdk.plugin.net.ThreadPool getInstance(int) -> a
+    void registerDownLoadListener(com.android.sdk.plugin.net.DownLoadListener) -> a
+    void addTask(com.android.sdk.plugin.net.DownLoadTask) -> a
+    void removeEachCache(java.lang.String) -> a
+com.android.sdk.plugin.port.Upload -> com.android.sdk.plugin.ft.i:
+    com.android.sdk.plugin.util.MyHttpPost httpPost -> a
+    com.android.sdk.plugin.util.MyHttpListener uploadPayResultHttpListener -> b
+    com.android.sdk.plugin.util.MyHttpListener dummyHttpListener -> c
+    void netInitSdk(java.lang.String,android.os.Handler) -> a
+    void uploadIncrementInfoToServer(java.lang.String) -> a
+    void getHYUserId(java.lang.String,android.os.Handler) -> b
+    void requestH5Pay(java.lang.String,android.os.Handler) -> c
+    void submitRoleInfo(java.lang.String,android.os.Handler) -> d
+    void platformCoinPay(java.lang.String,android.os.Handler) -> e
+    void nativeVerifytPayResultUtil(android.content.Context,java.lang.String,android.os.Handler) -> a
+    void uploadPayResultToServer(java.lang.String) -> b
+    void uploadException(java.lang.String) -> c
+    com.android.sdk.plugin.util.MyHttpPost access$002(com.android.sdk.plugin.util.MyHttpPost) -> a
+com.android.sdk.plugin.port.Upload$1 -> com.android.sdk.plugin.ft.j:
+    android.os.Handler val$mHandler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$2 -> com.android.sdk.plugin.ft.k:
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$3 -> com.android.sdk.plugin.ft.l:
+    android.os.Handler val$mHandler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$4 -> com.android.sdk.plugin.ft.m:
+    android.os.Handler val$mHandler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$5 -> com.android.sdk.plugin.ft.n:
+    android.os.Handler val$mHandler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$6 -> com.android.sdk.plugin.ft.o:
+    android.os.Handler val$mHandler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$7 -> com.android.sdk.plugin.ft.p:
+    android.os.Handler val$handler -> a
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$8 -> com.android.sdk.plugin.ft.q:
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.port.Upload$9 -> com.android.sdk.plugin.ft.r:
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.remote.RemoteSdk -> com.android.sdk.plugin.remote.RemoteSdk:
+    com.android.sdk.plugin.remote.RemoteSdk self -> a
+    com.android.sdk.plugin.remote.RemoteSdk getInstance() -> getInstance
+    java.lang.Boolean sdkInit(android.content.Context,java.lang.String,android.os.Handler) -> sdkInit
+    void setUncaughtExceptionHandler() -> a
+    void getInformation(android.content.Context) -> a
+    java.lang.String setInitBaseInfo(android.content.Context,java.lang.String) -> a
+    java.lang.String setBaseInfo(android.content.Context,java.lang.String) -> b
+    void uploadIncrementInfo(android.content.Context,java.lang.String) -> uploadIncrementInfo
+    void getHYUserId(android.content.Context,java.lang.String,android.os.Handler) -> getHYUserId
+    void requestH5Pay(android.content.Context,java.lang.String,android.os.Handler) -> requestH5Pay
+    void uploadPayResultToServer(android.content.Context,java.lang.String) -> uploadPayResultToServer
+    void get525Account(android.content.Context,java.lang.String,java.lang.String,java.lang.String,android.os.Handler) -> get525Account
+    void requestServerOrder(android.content.Context,java.lang.String,android.os.Handler) -> requestServerOrder
+    void submitRoleInfo(android.content.Context,java.lang.String,android.os.Handler) -> submitRoleInfo
+    void platformCoinPay(android.content.Context,java.lang.String,android.os.Handler) -> platformCoinPay
+    void verifytPayResult(android.content.Context,java.lang.String,java.lang.String,android.os.Handler) -> verifytPayResult
+    void nativeVerifytPayResult(android.content.Context,java.lang.String,android.os.Handler) -> nativeVerifytPayResult
+com.android.sdk.plugin.util.ApkManager -> com.android.sdk.plugin.ft.s:
+    java.lang.String[] getPackageInfo(android.content.Context) -> a
+com.android.sdk.plugin.util.BatteryReceriver -> com.android.sdk.plugin.ft.t:
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.android.sdk.plugin.util.DeviceUtil -> com.android.sdk.plugin.ft.u:
+    java.lang.String getDeviceid(android.content.Context) -> a
+    java.lang.String getDeviceid_2(android.content.Context) -> b
+    java.lang.String getImsi(android.content.Context) -> c
+    java.lang.String getImsi_2(android.content.Context) -> d
+    java.lang.String getIccid(android.content.Context) -> e
+    java.lang.String getOp(android.content.Context) -> f
+    java.lang.String getOp_2(android.content.Context) -> g
+    java.lang.String getPhoneNum(android.content.Context) -> h
+    java.lang.String getPhoneNum_2(android.content.Context) -> i
+    java.lang.String getAndroidid(android.content.Context) -> j
+    java.lang.String getCID(android.content.Context) -> k
+    java.lang.String getLAC(android.content.Context) -> l
+    java.lang.String getMNC(android.content.Context) -> m
+    java.lang.String getMCC(android.content.Context) -> n
+    java.lang.String getResolution(android.content.Context) -> o
+    java.lang.String getScreenBrightness(android.content.Context) -> p
+    java.lang.String getDeviceModel() -> a
+    java.lang.String getDeviceBrand() -> b
+    java.lang.String getDeviceManufacturer() -> c
+    int getIsRooted() -> d
+    java.lang.String getLanguage(android.content.Context) -> q
+    java.lang.String getDevice() -> e
+    int getSDKVersionInt() -> f
+    java.lang.String getSDKVerName() -> g
+    int getCpuCoreNum() -> h
+    java.lang.String getMaxCpuFreq() -> i
+    java.lang.String getUptime() -> j
+    long getTotalRom() -> k
+    long getAvailRom() -> l
+    int getNetworkType(android.content.Context) -> r
+    boolean juegement() -> m
+com.android.sdk.plugin.util.DeviceUtil$1CpuFilter -> com.android.sdk.plugin.ft.v:
+    boolean accept(java.io.File) -> accept
+com.android.sdk.plugin.util.MyBase64 -> com.android.sdk.plugin.ft.w:
+    boolean $assertionsDisabled -> a
+    byte[] decode(java.lang.String,int) -> a
+    byte[] decode(byte[],int) -> a
+    byte[] decode(byte[],int,int,int) -> a
+    java.lang.String encodeToString(byte[],int) -> b
+    byte[] encode(byte[],int) -> c
+    byte[] encode(byte[],int,int,int) -> b
+com.android.sdk.plugin.util.MyBase64$Coder -> com.android.sdk.plugin.ft.x:
+    byte[] output -> a
+    int op -> b
+com.android.sdk.plugin.util.MyBase64$Decoder -> com.android.sdk.plugin.ft.y:
+    int[] DECODE -> c
+    int[] DECODE_WEBSAFE -> d
+    int state -> e
+    int value -> f
+    int[] alphabet -> g
+    boolean process(byte[],int,int,boolean) -> a
+com.android.sdk.plugin.util.MyBase64$Encoder -> com.android.sdk.plugin.ft.z:
+    byte[] ENCODE -> h
+    byte[] ENCODE_WEBSAFE -> i
+    byte[] tail -> j
+    int tailLen -> c
+    int count -> k
+    boolean do_padding -> d
+    boolean do_newline -> e
+    boolean do_cr -> f
+    byte[] alphabet -> l
+    boolean $assertionsDisabled -> g
+    boolean process(byte[],int,int,boolean) -> a
+com.android.sdk.plugin.util.MyDebug -> com.android.sdk.plugin.ft.aa:
+    java.lang.String TAG -> a
+    void log(java.lang.String) -> a
+com.android.sdk.plugin.util.MyHttpListener -> com.android.sdk.plugin.ft.ab:
+    void onCompleted(java.lang.String,int) -> a
+com.android.sdk.plugin.util.MyHttpPost -> com.android.sdk.plugin.ft.ac:
+    com.android.sdk.plugin.net.HttpEngine mHttpEngine -> a
+    com.android.sdk.plugin.util.MyHttpListener mListener -> b
+    java.lang.String mTaskName -> c
+    java.lang.StringBuffer mRspBody -> d
+    int mRetryTimes -> e
+    java.lang.String mUrl -> f
+    org.json.JSONObject mPostValues -> g
+    com.android.sdk.plugin.net.DownLoadListener mHttpListener -> h
+    android.os.Handler mHandler -> i
+    void post() -> a
+    java.lang.String getPostString() -> b
+    java.lang.String access$000(com.android.sdk.plugin.util.MyHttpPost) -> a
+    android.os.Handler access$100(com.android.sdk.plugin.util.MyHttpPost) -> b
+    com.android.sdk.plugin.net.HttpEngine access$200(com.android.sdk.plugin.util.MyHttpPost) -> c
+    int access$300(com.android.sdk.plugin.util.MyHttpPost) -> d
+    int access$302(com.android.sdk.plugin.util.MyHttpPost,int) -> a
+    java.lang.StringBuffer access$400(com.android.sdk.plugin.util.MyHttpPost) -> e
+    java.lang.StringBuffer access$402(com.android.sdk.plugin.util.MyHttpPost,java.lang.StringBuffer) -> a
+    com.android.sdk.plugin.util.MyHttpListener access$500(com.android.sdk.plugin.util.MyHttpPost) -> f
+com.android.sdk.plugin.util.MyHttpPost$1 -> com.android.sdk.plugin.ft.ad:
+    com.android.sdk.plugin.util.MyHttpPost this$0 -> a
+    void HttpTransfersEvent(java.lang.String,int,java.lang.String) -> a
+    void HttpTransfersBodyReceived(java.lang.String,java.lang.String,byte[],int) -> a
+com.android.sdk.plugin.util.MyHttpPost$2 -> com.android.sdk.plugin.ft.ae:
+    com.android.sdk.plugin.util.MyHttpPost this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.android.sdk.plugin.util.MyHttpProtocol -> com.android.sdk.plugin.ft.af:
+    java.lang.String getHost() -> a
+    java.lang.String deCodeRspContent(java.lang.String,java.lang.String) -> a
+    java.lang.String enCodeReqContent(java.lang.String) -> a
+com.android.sdk.plugin.util.MyUncaughtExceptionHandler -> com.android.sdk.plugin.ft.ag:
+    java.lang.Thread$UncaughtExceptionHandler systemDefaultUncaughtExceptionHandler -> a
+    void writeError(java.lang.Exception,java.lang.String) -> a
+    void uncaughtException(java.lang.Thread,java.lang.Throwable) -> uncaughtException
+com.android.sdk.plugin.util.NetworkUtil -> com.android.sdk.plugin.ft.ah:
+    boolean isWifiNetworkAvailable(android.content.Context) -> a
+    java.lang.String getIPAddress() -> a
+    java.lang.String[] getWifiInfo(android.content.Context) -> b
+    java.lang.String getNetInfo(android.content.Context) -> c
+    void getPosition(android.content.Context) -> d
+    void get525Account(java.lang.String,java.lang.String,java.lang.String,android.os.Handler) -> a
+    void requestOrderUtil(java.lang.String,java.lang.String,android.os.Handler) -> a
+    void verifytPayResultUtil(java.lang.String,java.lang.String,android.os.Handler) -> b
+com.android.sdk.plugin.util.NetworkUtil$1 -> com.android.sdk.plugin.ft.ai:
+    android.content.Context val$mContext -> a
+    void run() -> run
+com.android.sdk.plugin.util.NetworkUtil$2 -> com.android.sdk.plugin.ft.aj:
+    java.lang.String val$url -> a
+    java.lang.String val$userid -> b
+    java.lang.String val$token -> c
+    android.os.Handler val$requestHandler -> d
+    void run() -> run
+com.android.sdk.plugin.util.NetworkUtil$3 -> com.android.sdk.plugin.ft.ak:
+    java.lang.String val$url -> a
+    java.lang.String val$token -> b
+    android.os.Handler val$requestHandler -> c
+    void run() -> run
+com.android.sdk.plugin.util.NetworkUtil$4 -> com.android.sdk.plugin.ft.al:
+    java.lang.String val$url -> a
+    java.lang.String val$token -> b
+    android.os.Handler val$requestHandler -> c
+    void run() -> run
+com.android.sdk.plugin.util.PluginStringTable -> com.android.sdk.plugin.ft.am:
+    char[] StringTable -> a
+    java.lang.String getPluginStringFromTable(int[]) -> a
+com.android.sdk.plugin.util.PreferenceUtil -> com.android.sdk.plugin.ft.an:
+    void saveLocateData(android.content.Context,java.lang.String,java.lang.String) -> a
+    void saveBatteryData(android.content.Context,int,int,int) -> a
+    java.lang.String[] readData(android.content.Context) -> a
+com.android.sdk.plugin.util.StringUtil -> com.android.sdk.plugin.ft.ao:
+    java.lang.String makeSafe(java.lang.String) -> a
+com.android.sdk.plugin.util.UploadTag -> com.android.sdk.plugin.ft.ap:
+    java.lang.String installTime -> a
+    java.lang.String SSID -> b
+    java.lang.String BSSID -> c
+    java.lang.String wifiIPAddress -> d
+    java.lang.String publicNetIP -> e
+    java.lang.String publicNetAddress -> f
+    java.lang.String screenSize -> g
+    java.lang.String appVersion -> h
+    java.lang.String systemUptime -> i
+    java.lang.String deviceModel -> j
+    java.lang.String deviceModelType -> k
+    java.lang.String deviceName -> l
+    java.lang.String deviceModelName -> m
+    java.lang.String screenBrightness -> n
+    java.lang.String batteryLevel -> o
+    java.lang.String charging -> p
+    java.lang.String fullyCharged -> q
+    java.lang.String jailbrokenTag -> r
+    java.lang.String carrierName -> s
+    java.lang.String diskSpace -> t
+    java.lang.String freeDiskSpanceInRaw -> u
+    java.lang.String usedDiskSpanceInRaw -> v
+    java.lang.String usedDiskSpaceInPercent -> w
+    java.lang.String appname -> x
+    java.lang.String deviceid -> y
+    java.lang.String deviceid2 -> z
+    java.lang.String imsi -> A
+    java.lang.String imsi2 -> B
+    java.lang.String iccid -> C
+    java.lang.String coreversion -> D
+    java.lang.String sdkver -> E
+    java.lang.String pkgname -> F
+    java.lang.String os -> G
+    java.lang.String androidVerTag -> H
+    java.lang.String releaseTag -> I
+    java.lang.String netTypeTag -> J
+    java.lang.String brandTag -> K
+    java.lang.String manufacturerTag -> L
+    java.lang.String connectivityTag -> M
+    java.lang.String opCodeTag -> N
+    java.lang.String opCode2Tag -> O
+    java.lang.String phoneNumTag -> P
+    java.lang.String phoneNum2Tag -> Q
+    java.lang.String macAddressTag -> R
+    java.lang.String androidIdTag -> S
+    java.lang.String languageTag -> T
+    java.lang.String cpucoreTag -> U
+    java.lang.String cpufreqTag -> V
+    java.lang.String cidTag -> W
+    java.lang.String lacTag -> X
+    java.lang.String mncTag -> Y
+    java.lang.String mccTag -> Z
+    java.lang.String exceptionTag -> aa

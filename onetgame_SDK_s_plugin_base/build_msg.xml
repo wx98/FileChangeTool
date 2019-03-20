@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="NgsteamAdvertising" default="NgsteamAdvertisingMsgDex">
+
+     <property name="Implementation.Version" value="1.0.0009" />
+     <!-- <property name="sdk-folder" value="${env.ANDROID_SDK_HOME}" /> -->
+     <property name="external.classes.jar" value="C:/Users/Neo/Desktop/auto_pac_2_2_0309/classes.jar" />
+     <property name="sdk.folder" value="D:\AndroidSDK\android-sdk_r24.4.1-windows\android-sdk-windows" />
+     
+     <property name="android.lib" value="${sdk.folder}/platforms/android-19/android.jar" />
+     <property name="sdk.platform.tools" value="${sdk.folder}/platform-tools" />
+     <property name="dx" value="${sdk.folder}/build-tools/23.0.3/dx.bat" /> 
+     
+    <property name="base.dir" value="." />
+    <property name="proj.dir" value=".." />
+    <property name="base.absolute.dir" location="${base.dir}" />
+    <property name="src.dir" location="${base.dir}/src" />
+    <property name="build.dir" location="${base.dir}/build" />
+    <property name="build.classes.dir" location="${build.dir}/classes" />
+    <property name="interface.dir" location="${base.dir}/interface" />
+    <property name="interface.classes.dir" location="${interface.dir}/classes" />
+    <property name="external.libs.dir" location="${base.dir}/libs" />
+    <property name="external.libs.absolute.dir" location="${external.libs.dir}" />
+    <property name="external.libs.files" location="${external.libs.dir}/android-support-v4.jar" />    
+    <property name="proguard.lib" location="${base.dir}/proguard4.9/lib/proguard.jar" />
+    <property name="include.file" value="**/*.java" />
+    <property name="dest.jar" location="${base.dir}/nplugin.jar" />
+    <property name="dest.so" location="${proj.dir}/Demo/assets/nplugin.apk" />
+    <property name="temp.jar" location="${base.dir}/temp.jar" />
+    <property name="proguard.jar" location="${base.dir}/proguard.jar" />
+    <property name="interface.jar" location="${base.dir}/interface.jar" />
+
+    <property name="assets.dir" location="${base.dir}/assets" />
+
+    <property name="build.bin.dir" location="${base.dir}/bin/classes" />
+    
+    <property name="mapping.map" value="./${Implementation.Version}" />
+    
+    <taskdef name="genRepackagename" classname="GenPackageName" classpath="${base.absolute.dir}/GenPackageName.jar" />
+    
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${interface.dir}"/>
+        <delete file="${temp.jar}"/>
+        <delete file="${dest.jar}"/>
+        <delete file="${dest.so}"/>
+        <delete file="${proguard.jar}"/>
+        <delete file="${interface.jar}"/>
+    </target>
+
+    <path id="compile.classpath">  
+        <filelist>
+            <file name="${android.lib}" />
+        </filelist>  
+    </path> 
+
+    <target name="compile" depends="clean">
+        <copy todir="${interface.dir}">
+             <fileset dir="${src.dir}">
+             </fileset>
+        </copy>
+        
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${interface.dir}" 
+               destdir="${build.classes.dir}"
+               includes="${include.file}"
+               source="1.6"
+               target="1.6"
+               verbose="false"
+               includeantruntime="on"
+               encoding="utf-8" >
+            <classpath refid="compile.classpath" />
+        </javac>
+    </target>
+
+    <target name="package" depends="compile">
+        <!--compile interface-->
+        
+        <!--delete interface end-->
+        
+        <jar destfile="${temp.jar}" basedir="${build.classes.dir}" >
+            <manifest>
+                <attribute name="Built-By" value="Team" />
+                <attribute name="Implementation-Version" value="${Implementation.Version}" />
+            </manifest>
+        </jar>
+    </target>
+
+    
+    <target name="obfuscateSimpleJarWithProguard" depends="package">
+	 <genRepackagename path="${base.absolute.dir}" />
+	  <property file="repackagename.properties"/> 
+    
+        <java jar="${proguard.lib}" fork="true" failonerror="true">
+           <arg value="-injars ${temp.jar}"/>
+           <arg value="-outjars ${proguard.jar}"/>
+           <arg value="-libraryjars ${android.lib}"/>
+           <arg value="-libraryjars ${external.libs.files}"/>
+           
+           <arg value="-dontusemixedcaseclassnames"/>
+           <arg value="-repackageclasses"/>
+           <arg value="-allowaccessmodification"/>
+           
+           <arg value="-keepattributes *Annotation*" />
+           
+           <arg value="-keeppackagenames com.android.sdk.plugin.remote"/>
+           <arg value="-keepclassmembers class com.android.sdk.plugin.remote.*"/>
+           <arg value="-keep class com.android.sdk.plugin.remote.*"/>
+		   <arg value="-keep class com.android.sdk.plugin.remote.*{public *;}"/> 
+		   
+		  <!--  <arg value="-keep public class * extends com.android.sdk.remote.ui.BaseScreen {*;}"/>  -->
+		   
+           <arg value="-repackageclass com.android.sdk.plugin.ft"/>
+           
+           <!--<arg value="-optimizationpasses 1"/>-->
+           <arg value="-ignorewarnings"/>
+           <arg value="-dontskipnonpubliclibraryclasses"/>
+           <arg value="-dontoptimize"/>
+           <arg value="-dontpreverify"/>
+           <arg value="-verbose"/>
+           
+           <arg value="-printmapping ${mapping.map}"/>
+        </java>
+    </target>
+    
+    <target name="NgsteamAdvertisingMsgDex" depends="obfuscateSimpleJarWithProguard">
+        <exec executable="${dx}" failonerror="true">  
+            <arg value="--dex" />  
+            <arg value="--output=${dest.jar}" />
+            <arg value="${proguard.jar}" />
+        </exec> 
+        <copy tofile="${dest.so}" file="${dest.jar}" />
+        <!-- <delete file="${temp.jar}"/>-->
+        <!-- <delete dir="${build.dir}"/>-->
+    </target>
+
+</project>
+
