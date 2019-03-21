@@ -35,7 +35,7 @@ public class RemotePort {
 
 	private DexClassLoader getLoader() {
 		if (mLoader == null) {
-            String apppath = MyFileUtil.getPluginDexPath(mCtx)
+           /* String apppath = MyFileUtil.getPluginDexPath(mCtx)
             		+ File.separator 
             		+ Constant.PLUGIN_JAR_NAME;
 	        File appf = new File(apppath);
@@ -48,7 +48,7 @@ public class RemotePort {
 		    
 			String jarPath = Constant.PLUGIN_DEX_PATH + File.separator
 					+ Constant.PLUGIN_JAR_NAME;
-			mLoader = Loader.loadDex(mCtx,jarPath, null, null);
+			mLoader = Loader.loadDex(mCtx,jarPath, null, null);*/
 		}
 		return mLoader;
 	}

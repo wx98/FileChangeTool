@@ -1068,10 +1068,6 @@ com.android.sdk.util.Plugin -> com.android.sdk.util.Plugin:
     void nativeVerifyPayResult(android.content.Context,com.android.sdk.port.PayInfo,android.os.Handler) -> nativeVerifyPayResult
     void syncPayPPY(android.content.Context,java.lang.String,android.os.Handler) -> syncPayPPY
 com.android.sdk.util.Plugin$1 -> com.android.sdk.util.Plugin$1:
-    android.content.Context val$mContext -> val$mContext
-    com.android.sdk.util.Plugin this$0 -> this$0
-    void run() -> run
-com.android.sdk.util.Plugin$2 -> com.android.sdk.util.Plugin$2:
     android.content.Context val$context -> val$context
     com.android.sdk.lg.port.HYSDK val$sdk -> val$sdk
     java.lang.String val$orderId -> val$orderId

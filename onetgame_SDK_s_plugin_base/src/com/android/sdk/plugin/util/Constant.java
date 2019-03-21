@@ -4,9 +4,11 @@ public class Constant {
 	public static final String VERSION = "1.0.9";
 	
 //	public static final String SERVER_URL = "http://cgame.clickout.cn:8080/qpay/api/";
-//	public static final String SERVER_URL = "http://172.17.119.1:8080/online_game_new/api/";//本地 
- 	public static final String SERVER_URL = "http://192.168.1.184:8080/online_game_new/api/";//测试
-// 	public static final String SERVER_URL = "http://game.wingsungame.com/online_game_new/api/";//正式 
+//	public static final String SERVER_URL = "http://172.17.119.1:8080/online_game_new/api/";//本地
+//	public static final String SERVER_URL = "http://120.26.55.153:8095/online_game_new/api/";//测试
+//	public static final String SERVER_URL = "http://192.168.1.110:8080/online_game_new/api/";//liukaibendi
+	public static final String SERVER_URL = "http://game.wingsungame.com/online_game_new/api/";//正式
+//	public static final String SERVER_URL = "http://www.yangct.cn:8095/online_game_new/api/";//测试
 	
 	public static final String EXCEPTIONTAG = "inc.pl";
 	

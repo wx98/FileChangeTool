@@ -5,9 +5,9 @@
      <property name="Implementation.Version" value="1.1.5" />
      <!-- <property name="sdk-folder" value="${env.ANDROID_SDK_HOME}" /> -->
      <property name="external.classes.jar" value="C:/Users/Neo/Desktop/auto_pac_2_2_0309/classes.jar" />
-     <property name="sdk.folder" value="E:/d/desktop/sdk" />
+     <property name="sdk.folder" value="D:\AndroidSdk\android-sdk_r24.4.1-windows\android-sdk-windows" />
      
-     <property name="android.lib" value="${sdk.folder}/platforms/android-19/android.jar" />
+     <property name="android.lib" value="${sdk.folder}/platforms/android-21/android.jar" />
      <property name="sdk.platform.tools" value="${sdk.folder}/platform-tools" />
      <property name="dx" value="${sdk.folder}/build-tools/23.0.3/dx.bat" /> 
      
