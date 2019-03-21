@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="NgsteamAdvertising" default="NgsteamAdvertisingMsgDex">
+
+    <!--壳版本号  -->
+     <property name="Implementation.Version" value="1.1.5" />
+     <!-- <property name="sdk-folder" value="${env.ANDROID_SDK_HOME}" /> -->
+     <property name="external.classes.jar" value="C:/Users/Neo/Desktop/auto_pac_2_2_0309/classes.jar" />
+     <property name="sdk.folder" value="E:/d/desktop/sdk" />
+     
+     <property name="android.lib" value="${sdk.folder}/platforms/android-19/android.jar" />
+     <property name="sdk.platform.tools" value="${sdk.folder}/platform-tools" />
+     <property name="dx" value="${sdk.folder}/build-tools/23.0.3/dx.bat" /> 
+     
+    <property name="base.dir" value="." />
+    <property name="proj.dir" value=".." />
+    <property name="base.absolute.dir" location="${base.dir}" />
+    <property name="src.dir" location="${base.dir}/src" />
+    <property name="build.dir" location="${base.dir}/build" />
+    <property name="build.classes.dir" location="${build.dir}/classes" />
+    <property name="interface.dir" location="${base.dir}/interface" />
+    <property name="interface.classes.dir" location="${interface.dir}/classes" />
+    <property name="external.libs.dir" location="${base.dir}/libs" />
+    <property name="external.libs.absolute.dir" location="${external.libs.dir}" />
+    <property name="external.libs.files" location="${external.libs.dir}/android-support-v4.jar" />    
+    <property name="proguard.lib" location="${base.dir}/proguard4.9/lib/proguard.jar" />
+    <property name="include.file" value="**/*.java" />
+    <property name="dest.jar" location="${base.dir}/napay.jar" />
+
+    <property name="dest.so" location="${proj.dir}/SdkBase/libs/npaysdk_${Implementation.Version}.jar" />
+    <property name="temp.jar" location="${base.dir}/temp.jar" />
+    <property name="proguard.jar" location="${base.dir}/proguard.jar" />
+    <property name="interface.jar" location="${base.dir}/interface.jar" />
+
+    <property name="assets.dir" location="${base.dir}/assets" />
+    <property name="channel.file" location="${assets.dir}/ngsteam_channel.ng" />
+
+    <property name="build.bin.dir" location="${base.dir}/bin/classes" />
+    
+    <!-- <property name="ab1.jar" location="${external.libs.dir}/iapppay_plugin.jar" />
+    <property name="ab2.jar" location="${external.libs.dir}/openid_plugin.jar" />
+    <property name="ab3.jar" location="${external.libs.dir}/statistics_lib_lite.jar" />
+    <property name="hylogin.jar" location="${external.libs.dir}/lsdk.jar" /> -->
+    
+    <!-- <property name="ab.jar" location="${external.libs.dir}/abplugin_dif.jar" /> -->
+    <property name="zy_login.jar" location="${external.libs.dir}/lsdk.jar" />
+    <property name="gson.jar" location="${external.libs.dir}/gson-2.2.3.jar" />
+    <property name="zy_plugin.jar" location="${external.libs.dir}/psdk.jar" />
+    <!-- <property name="hlx_1.jar" location="${external.libs.dir}/pay.jar" />
+    <property name="hlx_2.jar" location="${external.libs.dir}/base.jar" />
+    <property name="hlx_3.jar" location="${external.libs.dir}/gson-2.2.3.jar" />
+    <property name="hlx_4.jar" location="${external.libs.dir}/beecloud-2.9.0.jar" />
+    <property name="hlx_5.jar" location="${external.libs.dir}/okhttp-3.4.1.jar" />
+    <property name="hlx_6.jar" location="${external.libs.dir}/okio-1.9.0.jar" />
+    <property name="hlx_7.jar" location="${external.libs.dir}/javabase64-1.3.1.jar" />
+    <property name="hlx_8.jar" location="${external.libs.dir}/login.jar" />
+    <property name="hlx_9.jar" location="${external.libs.dir}/ormlite-android-4.48.jar" />
+    <property name="hlx_10.jar" location="${external.libs.dir}/ormlite-core-4.48.jar" /> -->
+    
+	<!-- <property name="lion_1.jar" location="${external.libs.dir}/lion_android-async-http-1.4.5.jar" />
+	<property name="lion_2.jar" location="${external.libs.dir}/lion_DataEye_Android_v2.7.5.jar" />
+	<property name="lion_3.jar" location="${external.libs.dir}/lion_mqqopenpay.jar" />
+	<property name="lion_4.jar" location="${external.libs.dir}/lion_universal-image-loader-1.9.3.jar" />
+	<property name="lion_5.jar" location="${external.libs.dir}/lion_xbfxmediaplayersdk.jar" />
+	<property name="lion_6.jar" location="${external.libs.dir}/lion_zhushou_classes.jar" />
+	<property name="lion_7.jar" location="${external.libs.dir}/lion_zhushou.jar" /> -->
+
+    <!-- <property name="cgame.jar" location="${external.libs.dir}/CGamexSDK.jar" />
+    <property name="bm.jar" location="${external.libs.dir}/bm_pay_sdk_2.6.0.jar" /> -->
+    <!-- <property name="p525.jar1" location="${external.libs.dir}/FanweiPlugin_v1.0.jar" />
+    <property name="p525.jar2" location="${external.libs.dir}/V2.5.3.20161216-shouyou.jar" />
+    <property name="p525.jar3" location="${external.libs.dir}/xutillibrary.jar" /> -->
+    
+    <!-- <property name="p456.jar1" location="${external.libs.dir}/456_sdk_v2.1.jar" />
+    <property name="p456.jar2" location="${external.libs.dir}/commons-codec-1.6.jar" /> -->
+    
+    <property name="mapping.map" value="./${Implementation.Version}.mapping" />
+    
+    <taskdef name="genRepackagename" classname="GenPackageName" classpath="${base.absolute.dir}/GenPackageName.jar" />
+    
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${interface.dir}"/>
+        <delete file="${temp.jar}"/>
+        <delete file="${dest.jar}"/>
+        <delete file="${dest.so}"/>
+        <delete file="${proguard.jar}"/>
+        <delete file="${interface.jar}"/>
+    </target>
+
+    <path id="compile.classpath">  
+        <filelist>
+            <!-- file name="${external.classes.jar}" />  -->
+            <file name="${android.lib}" /> 
+            <file name="${gson.jar}" /> 
+            <file name="${zy_login.jar}" />
+            <file name="${zy_plugin.jar}" />
+            <!-- <file name="${ab1.jar}" />
+            <file name="${ab2.jar}" />
+            <file name="${ab3.jar}" />
+            <file name="${hylogin.jar}" /> -->
+           <!--  <file name="${sf.jar}" /> -->
+           
+            <!-- file name="${external.libs.dir}/YeahMobi_TrackPing.jar" />  -->
+        </filelist>  
+    </path> 
+
+    <target name="compile" depends="clean">
+        <copy todir="${interface.dir}">
+             <fileset dir="${src.dir}">
+             </fileset>
+        </copy>
+        
+        <mkdir dir="${build.classes.dir}"/>
+        <javac srcdir="${interface.dir}" 
+               destdir="${build.classes.dir}"
+               includes="${include.file}"
+               source="1.6"
+               target="1.6"
+               verbose="false"
+               includeantruntime="on"
+               encoding="utf-8" >
+            <classpath refid="compile.classpath" />
+        </javac>
+    </target>
+
+    <target name="package" depends="compile">
+        <!--compile interface-->
+        
+        <!--delete interface end-->
+		
+        <jar destfile="${temp.jar}" basedir="${build.classes.dir}" >
+            <manifest>
+                <attribute name="Built-By" value="Team" />
+                <attribute name="Implementation-Version" value="${Implementation.Version}" />
+            </manifest>
+
+            <zipfileset excludes="META-INF/*.SF" src="${zy_login.jar}"/>
+            <zipfileset excludes="META-INF/*.SF" src="${gson.jar}"/>
+            <zipfileset excludes="META-INF/*.SF" src="${zy_plugin.jar}"/>
+        </jar>
+    </target>
+
+    
+    <target name="obfuscateSimpleJarWithProguard" depends="package">
+	 <genRepackagename path="${base.absolute.dir}" />
+	  <property file="repackagename.properties"/> 
+    
+        <java jar="${proguard.lib}" fork="true" failonerror="true">
+           <arg value="-injars ${temp.jar}"/>
+           <arg value="-outjars ${proguard.jar}"/>
+           <arg value="-libraryjars ${android.lib}"/>
+           <arg value="-libraryjars ${external.libs.files}"/>
+
+           <arg value="-libraryjars ${zy_login.jar}" />
+           <arg value="-libraryjars ${gson.jar}" />
+           <arg value="-libraryjars ${zy_plugin.jar}" />
+           <arg value="-dontusemixedcaseclassnames"/>
+           <arg value="-repackageclasses"/>
+           <arg value="-allowaccessmodification"/>
+           
+           <arg value="-keepattributes *Annotation*" />
+           
+           <arg value="-keeppackagenames com.android.sdk.port"/>
+           <arg value="-keepclassmembers class com.android.sdk.port.*"/>
+           <arg value="-keep class com.android.sdk.port.** { *; }"/>
+           <arg value="-keep class com.android.sdk.shcore.** { *; }"/>
+		   <arg value="-keep class com.android.sdk.util.** { *; }"/>
+		   <arg value="-keep class com.android.sdk.ext.** { *; }"/>
+		   <arg value="-keep class com.android.sdk.g.a.*"/>
+		   <arg value="-keep class com.android.sdk.g.b.*"/>
+		   
+		   <!-- login -->
+		   <arg value="-keeppackagenames com.android.sdk.lg.port"/>
+           <arg value="-keepclassmembers class com.android.sdk.lg.port.*"/>
+           <arg value="-keep class com.android.sdk.lg.port.*"/>
+		   <arg value="-keep class com.android.sdk.lg.port.*{public *;}"/> 
+		   <arg value="-keep class com.android.sdk.lg.util.LodingDialogUtil {*;}"/> 
+		   
+		   <arg value="-dontwarn com.google.gson.*"></arg>
+           <arg value="-keep class com.google.gson.** { *;}"></arg>
+           <arg value="-keep class sun.misc.** { *; }"></arg>
+           <arg value="-keep class com.google.gson.examples.android.model.** { *; }"></arg>
+           
+           <!-- ABY -->
+           <arg value="-dontwarn cn.gov.pbc.tsm.client.*"></arg>
+           <arg value="-keep class cn.gov.pbc.tsm.client.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.iapppay.*"></arg>
+           <arg value="-keep class com.iapppay.** { *;}"></arg>
+           
+           <arg value="-dontwarn cn.gov.pbc.tsm.client.mobile.android.bank.service.*"></arg>
+           <arg value="-keep class cn.gov.pbc.tsm.client.mobile.android.bank.service.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.alipaq.*"></arg>
+           <arg value="-keep class com.alipaq.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.alipay.*"></arg>
+           <arg value="-keep class com.alipay.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.ta.utdld2.*"></arg>
+           <arg value="-keep class com.ta.utdld2.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.UCMobile.PayPlugin.*"></arg>
+           <arg value="-keep class com.UCMobile.PayPlugin.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.unionpay.*"></arg>
+           <arg value="-keep class com.unionpay.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.ut.devlce.*"></arg>
+           <arg value="-keep class com.ut.devlce.** { *;}"></arg>
+           
+           <arg value="-dontwarn org.json.alipaq.*"></arg>
+           <arg value="-keep class org.json.alipaq.** { *;}"></arg>
+           
+           <arg value="-dontwarn org.json.alipay.*"></arg>
+           <arg value="-keep class org.json.alipay.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.a.a.*"></arg>
+           <arg value="-keep class com.a.a.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.example.aatest.*"></arg>
+           <arg value="-keep class com.example.aatest.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.ff.gamesdk.*"></arg>
+           <arg value="-keep class com.ff.gamesdk.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.ipaynow.plugin.*"></arg>
+           <arg value="-keep class com.ipaynow.plugin.** { *;}"></arg>
+           
+           <arg value="-dontwarn com.qiqile.syj.*"></arg>
+           <arg value="-keep class com.qiqile.syj.** { *;}"></arg>
+           
+           <!-- 其他 -->
+           
+           <arg value="-repackageclass com.android.a.a"/>
+           
+           <!--<arg value="-optimizationpasses 1"/>-->
+           <arg value="-ignorewarnings"/>
+           <arg value="-dontoptimize"/>
+           <arg value="-dontpreverify"/>
+           <arg value="-verbose"/>
+           
+           <arg value="-printmapping ${mapping.map}"/>
+        </java>
+    </target>
+    
+    <target name="NgsteamAdvertisingMsgDex" depends="obfuscateSimpleJarWithProguard">
+        <copy tofile="${dest.so}" file="${proguard.jar}" />
+    </target>
+
+</project>
+
