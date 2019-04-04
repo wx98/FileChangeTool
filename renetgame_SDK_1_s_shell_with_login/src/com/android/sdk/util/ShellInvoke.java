@@ -15,7 +15,7 @@ public class ShellInvoke
     {
         try
         {
-            Class<?> obj_class = loader.loadClass(class_name); // Class.forName(class_name);
+            Class<?> obj_class = Class.forName(class_name); //loader.loadClass(class_name); 
             Method method = obj_class.getMethod(method_name, pareTyple);
             return method.invoke(null, pareVaules);
         }
@@ -70,7 +70,7 @@ public class ShellInvoke
     {
         try
         {
-            Class<?> obj_class = loader.loadClass(class_name); // Class.forName(class_name);
+            Class<?> obj_class = Class.forName(class_name); //loader.loadClass(class_name); 
             Field field = obj_class.getDeclaredField(filedName);
             field.setAccessible(true);
             return field.get(obj);
@@ -106,7 +106,7 @@ public class ShellInvoke
 
         try
         {
-            Class<?> obj_class = loader.loadClass(class_name); // Class.forName(class_name);
+            Class<?> obj_class =  Class.forName(class_name); //loader.loadClass(class_name); 
             Field field = obj_class.getDeclaredField(filedName);
             field.setAccessible(true);
             return field.get(null);
@@ -136,12 +136,12 @@ public class ShellInvoke
     }
 
 
-    public static void setFieldOjbect(DexClassLoader loader, String classname,
+    public static void setFieldOjbect(DexClassLoader loader, String class_name,
             String filedName, Object obj, Object filedVaule)
     {
         try
         {
-            Class<?> obj_class = loader.loadClass(classname); // Class.forName(classname);
+            Class<?> obj_class =  Class.forName(class_name); //loader.loadClass(class_name); 
             Field field = obj_class.getDeclaredField(filedName);
             field.setAccessible(true);
             field.set(obj, filedVaule);
@@ -174,7 +174,7 @@ public class ShellInvoke
     {
         try
         {
-            Class<?> obj_class = loader.loadClass(class_name); // Class.forName(class_name);
+            Class<?> obj_class =  Class.forName(class_name); //loader.loadClass(class_name); 
             Field field = obj_class.getDeclaredField(filedName);
             field.setAccessible(true);
             field.set(null, filedVaule);
@@ -383,7 +383,7 @@ public class ShellInvoke
 
         try
         {
-            Class<?> obj_class = loader.loadClass(class_name);// Class.forName(class_name);
+            Class<?> obj_class =  Class.forName(class_name); //loader.loadClass(class_name); 
             Method method = getDeclaredMethod(obj_class, method_name, pareTyple);
 //            Method method = obj_class.getDeclaredMethod(method_name, pareTyple);
             if (method == null){

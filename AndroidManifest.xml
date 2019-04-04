@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.joke.bamenshenqi.paysdk_studio">
+
+    <!-- =================================权限================================ -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"
+       />
+    <uses-permission android:name="android.webkit.permission.PLUGIN" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <!-- =================================权限================================ -->
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"
+          />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 读取移动网络的状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 读取电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读取WIFI信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 读取手机地理位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.Light.NoTitleBar">
+
+        <meta-data
+            android:name="TD_APP_ID"
+            android:value="6E258E84128F4A02A0AAD00DAF20DAAF" />
+        <meta-data
+            android:name="TD_CHANNEL_ID"
+            android:value="taurus" />
+
+        <meta-data
+            android:name="BM_CP_CHANNEL"
+            android:value="qudao9" />
+
+        <service
+            android:name="com.joke.sdk.bmfloat.WindowService">
+            <!--android:process=":wind_update"-->
+            <intent-filter>
+                <action android:name="COM.CACULATE.ADD" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.joke.bamenshenqi.paysdk_studio.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+          
+        </activity>
+
+        <activity
+            android:name="com.joke.sdk.ui.activity.BmPayAllCanUseCardVoucherActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent" />
+
+        <activity
+            android:name="com.joke.sdk.ui.activity.BmUserInfosActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent" />
+
+        <activity android:name="com.joke.sdk.ui.activity.AnnouncementActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent"/>
+
+        <activity
+            android:name="com.joke.sdk.ui.activity.PayActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent" />
+
+        <activity android:name="com.joke.sdk.ui.activity.CommonWebActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent"/>
+
+        <activity
+            android:name="com.joke.sdk.ui.activity.PayChannelActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent"/>
+
+        <activity
+            android:name="com.joke.sdk.ui.activity.PayWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <activity
+            android:name="com.joke.plugin.pay.ui.activity.JokePayActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/jokeActivitystyle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="qwallet1103566743" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.joke.plugin.pay.ui.activity.JokeWebActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.joke.plugin.pay.ui.activity.JokeH5Activity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!--渠道1 -->
+        <activity
+            android:name="com.heepay.plugin.activity.HyNotityActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 渠道2 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <!-- 渠道2 -->
+
+
+        <!--渠道3-->
+        <activity
+            android:name="sdk.pay.PayWebViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="sdk.pay.PayExcessiveActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--渠道3-->
+
+        <!--渠道4-->
+        <uses-library
+            android:name="org.simalliance.openmobileapi"
+            android:required="false" />
+
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true" 
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name="com.joke.sdk.ui.activity.BmbPayActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTop"
+            android:theme="@style/BmActivityTranslucent"/>
+    </application>
+
+</manifest>

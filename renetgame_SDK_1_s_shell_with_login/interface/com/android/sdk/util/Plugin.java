@@ -23,7 +23,7 @@ public class Plugin {
 	 */
 	private Plugin(final Context mContext) {
 		// 初始化相关操作
-		new Thread(new Runnable() {
+		/*new Thread(new Runnable() {
 
 			@Override
 			public void run() {
@@ -36,7 +36,7 @@ public class Plugin {
 						MyFileUtil.getPluginPath(mContext) + File.separator
 								+ Constant.PLUGIN_JAR_NAME, true);
 			}
-		}).run();
+		}).run();*/
 	}
 
 	public static Plugin getInstance(Context mContext) {
